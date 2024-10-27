@@ -1,0 +1,11 @@
+{
+  "server_address": ":8088",
+  "database": {
+    "host": "127.0.0.1",
+    "port": 6543,
+    "user": "",
+    "password": "",
+    "name": ""
+  },
+  "jwt_secret": ""
+}

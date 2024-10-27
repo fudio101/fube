@@ -18,6 +18,7 @@
 !LICENSE
 
 !example.env
+!example.config.json
 !Dockerfile
 !docker-compose.yml
 
