@@ -14,4 +14,8 @@
 cert/
 
 # BUILD #
-./gin-boilerplate
+./fube
+
+# Other #
+vendor/
+.idea/
