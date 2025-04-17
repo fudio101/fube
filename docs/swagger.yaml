@@ -151,7 +151,7 @@ info:
     JWT authentication
   license:
     name: MIT License
-    url: https://github.com/Massad/gin-boilerplate/blob/master/LICENSE
+    url: https://github.com/fudio101/fube/blob/master/LICENSE
   termsOfService: http://swagger.io/terms/
   title: Golang Gin Boilerplate
   version: "1.0"
