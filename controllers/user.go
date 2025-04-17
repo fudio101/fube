@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/Massad/gin-boilerplate/forms"
-	"github.com/Massad/gin-boilerplate/models"
+	"github.com/fudio101/fube/forms"
+	"github.com/fudio101/fube/models"
 
 	"net/http"
 

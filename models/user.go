@@ -3,8 +3,8 @@ package models
 import (
 	"errors"
 
-	"github.com/Massad/gin-boilerplate/db"
-	"github.com/Massad/gin-boilerplate/forms"
+	"github.com/fudio101/fube/db"
+	"github.com/fudio101/fube/forms"
 
 	"golang.org/x/crypto/bcrypt"
 )

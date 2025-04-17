@@ -1,4 +1,4 @@
-module github.com/Massad/gin-boilerplate
+module github.com/fudio101/fube
 
 go 1.24.0
 

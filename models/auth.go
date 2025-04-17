@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Massad/gin-boilerplate/db"
+	"github.com/fudio101/fube/db"
 	jwt "github.com/golang-jwt/jwt/v4"
 	uuid "github.com/google/uuid"
 )

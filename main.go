@@ -7,10 +7,10 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/Massad/gin-boilerplate/controllers"
-	"github.com/Massad/gin-boilerplate/db"
-	_ "github.com/Massad/gin-boilerplate/docs"
-	"github.com/Massad/gin-boilerplate/forms"
+	"github.com/fudio101/fube/controllers"
+	"github.com/fudio101/fube/db"
+	_ "github.com/fudio101/fube/docs"
+	"github.com/fudio101/fube/forms"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
@@ -71,7 +71,7 @@ func TokenAuthMiddleware() gin.HandlerFunc {
 // @contact.email  support@swagger.io
 
 // @license.name  MIT License
-// @license.url   https://github.com/Massad/gin-boilerplate/blob/master/LICENSE
+// @license.url   https://github.com/fudio101/fube/blob/master/LICENSE
 
 // @host      localhost:9000
 // @BasePath  /v1
