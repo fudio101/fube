@@ -3,8 +3,8 @@ package models
 import (
 	"errors"
 
-	"github.com/fudio101/fube/db"
-	"github.com/fudio101/fube/forms"
+	"github.com/fudio101/fube/internal/db"
+	"github.com/fudio101/fube/internal/forms"
 )
 
 // Response represents the top-level structure

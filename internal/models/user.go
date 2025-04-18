@@ -3,10 +3,10 @@ package models
 import (
 	"errors"
 
-	"github.com/fudio101/fube/db"
-	"github.com/fudio101/fube/forms"
-
 	"golang.org/x/crypto/bcrypt"
+
+	"github.com/fudio101/fube/internal/db"
+	"github.com/fudio101/fube/internal/forms"
 )
 
 type UserLoginResponse struct {

@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
-cd cert/
+cd ../cert/ || exit
 
 ip=$(hostname -I | awk '{print $1}')
-echo $ip
+echo "$ip"
 
 openssl genrsa -out myCA.key 2048
 

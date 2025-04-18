@@ -8,9 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/fudio101/fube/db"
-	jwt "github.com/golang-jwt/jwt/v4"
-	uuid "github.com/google/uuid"
+	"github.com/golang-jwt/jwt/v4"
+	"github.com/google/uuid"
+
+	"github.com/fudio101/fube/internal/db"
 )
 
 type AuthResponse struct {

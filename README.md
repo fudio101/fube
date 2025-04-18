@@ -8,7 +8,8 @@
 
 Welcome to **Golang Gin boilerplate** v2
 
-The fastest way to deploy a restful api's with [Gin Framework](https://github.com/gin-gonic/gin/) with a structured project that defaults to **PostgreSQL** database and **JWT** authentication middleware stored in **Redis**
+The fastest way to deploy a restful api's with [Gin Framework](https://github.com/gin-gonic/gin/) with a structured
+project that defaults to **PostgreSQL** database and **JWT** authentication middleware stored in **Redis**
 
 ## Configured with
 
@@ -58,7 +59,8 @@ You will find that we added 2 trigger functions to the dabatase:
 - `public.created_at_column()`
 - `public.update_at_column()`
 
-Those are added to the `updated_at` and `created_at` columns to update the latest timestamp automatically in both **user** and **article** tables. You can explore the tables and public schema for more info.
+Those are added to the `updated_at` and `created_at` columns to update the latest timestamp automatically in both **user
+** and **article** tables. You can explore the tables and public schema for more info.
 
 ## Running Your Application
 
@@ -125,17 +127,17 @@ https://www.postman.com/collections/7f941b400a88ddd9c137
 Includes the following:
 
 - User
-  - Login
-  - Register
-  - Logout
+    - Login
+    - Register
+    - Logout
 - Article
-  - Create
-  - Update
-  - Get Article
-  - Get Articles
-  - Delete
+    - Create
+    - Update
+    - Get Article
+    - Get Articles
+    - Delete
 - Auth
-  - Refresh Token
+    - Refresh Token
 
 > In Login request in Tests tab:
 
@@ -166,7 +168,9 @@ You will need to implement the `refresh_token` mechanism in your application (Fr
 
 _For example:_
 
-If the API sends `401` Status Unauthorized, then you can send the `refresh_token` that you stored it before from the Login API in POST `/v1/token/refresh` to receive the new `access_token` & `refresh_token` and store them again. Now, if you receive an error in refreshing the token, that means the user will have to Login again as something went wrong.
+If the API sends `401` Status Unauthorized, then you can send the `refresh_token` that you stored it before from the
+Login API in POST `/v1/token/refresh` to receive the new `access_token` & `refresh_token` and store them again. Now, if
+you receive an error in refreshing the token, that means the user will have to Login again as something went wrong.
 
 That's just an example, of course you can implement your own way.
 
@@ -174,19 +178,26 @@ That's just an example, of course you can implement your own way.
 
     No longer supported
 
-You will find the last update on v1 in [v1-session-cookies-auth](https://github.com/Massad/gin-boilerplate/tree/v1-session-cookies-auth) branch or [v1.0.5 release](https://github.com/Massad/gin-boilerplate/releases/tag/1.05) that supported the authentication using the **session** and **cookies** stored in **Redis** if needed.
+You will find the last update on v1
+in [v1-session-cookies-auth](https://github.com/Massad/gin-boilerplate/tree/v1-session-cookies-auth) branch
+or [v1.0.5 release](https://github.com/Massad/gin-boilerplate/releases/tag/1.05) that supported the authentication using
+the **session** and **cookies** stored in **Redis** if needed.
 
-- [RedisStore](https://github.com/gin-gonic/contrib/tree/master/sessions): Gin middleware for session management with multi-backend support (currently cookie, Redis).
+- [RedisStore](https://github.com/gin-gonic/contrib/tree/master/sessions): Gin middleware for session management with
+  multi-backend support (currently cookie, Redis).
 
 ## Contribution
 
 You are welcome to contribute to keep it up to date and always improving!
 
-If you have any question or need help, drop a message at [https://gitter.im/Massad/gin-boilerplate](https://gitter.im/Massad/gin-boilerplate)
+If you have any question or need help, drop a message
+at [https://gitter.im/Massad/gin-boilerplate](https://gitter.im/Massad/gin-boilerplate)
 
 ## Credit
 
-The implemented JWT inspired from this article: [Using JWT for Authentication in a Golang Application](https://www.nexmo.com/blog/2020/03/13/using-jwt-for-authentication-in-a-golang-application-dr) worth reading it, thanks [Victor Steven](https://medium.com/@victorsteven)
+The implemented JWT inspired from this
+article: [Using JWT for Authentication in a Golang Application](https://www.nexmo.com/blog/2020/03/13/using-jwt-for-authentication-in-a-golang-application-dr)
+worth reading it, thanks [Victor Steven](https://medium.com/@victorsteven)
 
 ---
 

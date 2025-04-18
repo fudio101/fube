@@ -1,4 +1,4 @@
-package controllers
+package handlers
 
 import (
 	"fmt"
@@ -6,19 +6,20 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/fudio101/fube/forms"
-	"github.com/fudio101/fube/models"
 	"github.com/gin-gonic/gin"
-	jwt "github.com/golang-jwt/jwt/v4"
+	"github.com/golang-jwt/jwt/v4"
+
+	"github.com/fudio101/fube/internal/forms"
+	"github.com/fudio101/fube/internal/models"
 )
 
-// AuthController ...
-type AuthController struct{}
+// AuthHandler ...
+type AuthHandler struct{}
 
 var authModel = new(models.AuthModel)
 
 // TokenValid ...
-func (ctl AuthController) TokenValid(c *gin.Context) {
+func (ctl AuthHandler) TokenValid(c *gin.Context) {
 
 	tokenAuth, err := authModel.ExtractTokenMetadata(c.Request)
 	if err != nil {
@@ -29,7 +30,7 @@ func (ctl AuthController) TokenValid(c *gin.Context) {
 
 	userID, err := authModel.FetchAuth(tokenAuth)
 	if err != nil {
-		//Token does not exists in Redis (User logged out or expired)
+		//Token do not exist in Redis (User logged out or expired)
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"message": "Please login first"})
 		return
 	}
@@ -49,7 +50,7 @@ func (ctl AuthController) TokenValid(c *gin.Context) {
 // @Success 	 200  {object}  models.AuthResponse
 // @Failure      406  {object}  models.MessageResponse
 // @Router /token/refresh [POST]
-func (ctl AuthController) Refresh(c *gin.Context) {
+func (ctl AuthHandler) Refresh(c *gin.Context) {
 	var tokenForm forms.Token
 
 	if c.ShouldBindJSON(&tokenForm) != nil {

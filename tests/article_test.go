@@ -7,28 +7,27 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"os"
-
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
-
-	"github.com/fudio101/fube/controllers"
-	"github.com/fudio101/fube/db"
-	"github.com/fudio101/fube/forms"
-	"github.com/joho/godotenv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
+	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/fudio101/fube/internal/db"
+	"github.com/fudio101/fube/internal/forms"
+	"github.com/fudio101/fube/internal/handlers"
 )
 
-var auth = new(controllers.AuthController)
+var auth = new(handlers.AuthHandler)
 
 // TokenAuthMiddleware ...
-// JWT Authentication middleware attached to each request that needs to be authenitcated to validate the access_token in the header
+// JWT Authentication middleware attached to each request that needs to be authenticated to validate the access_token in the header
 func TokenAuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		auth.TokenValid(c)
@@ -46,19 +45,19 @@ func SetupRouter() *gin.Engine {
 	v1 := r.Group("/v1")
 	{
 		/*** START USER ***/
-		user := new(controllers.UserController)
+		user := new(handlers.UserHandler)
 
 		v1.POST("/user/login", user.Login)
 		v1.POST("/user/register", user.Register)
 		v1.GET("/user/logout", user.Logout)
 
 		/*** START AUTH ***/
-		auth := new(controllers.AuthController)
+		auth := new(handlers.AuthHandler)
 
 		v1.POST("/token/refresh", auth.Refresh)
 
 		/*** START Article ***/
-		article := new(controllers.ArticleController)
+		article := new(handlers.ArticleHandler)
 
 		v1.POST("/article", TokenAuthMiddleware(), article.Create)
 		v1.GET("/articles", TokenAuthMiddleware(), article.All)

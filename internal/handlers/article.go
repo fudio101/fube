@@ -1,18 +1,17 @@
-package controllers
+package handlers
 
 import (
+	"net/http"
 	"strconv"
 
-	"github.com/fudio101/fube/forms"
-	"github.com/fudio101/fube/models"
-
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+
+	"github.com/fudio101/fube/internal/forms"
+	"github.com/fudio101/fube/internal/models"
 )
 
-// ArticleController ...
-type ArticleController struct{}
+// ArticleHandler ...
+type ArticleHandler struct{}
 
 var articleModel = new(models.ArticleModel)
 var articleForm = new(forms.ArticleForm)
@@ -28,7 +27,7 @@ var articleForm = new(forms.ArticleForm)
 // @Success 	 200  {object}  forms.ArticleResponse
 // @Failure      406  {object}  forms.ArticleResponse
 // @Router /article [post]
-func (ctrl ArticleController) Create(c *gin.Context) {
+func (ctrl ArticleHandler) Create(c *gin.Context) {
 	userID := getUserID(c)
 
 	var form forms.CreateArticleForm
@@ -58,7 +57,7 @@ func (ctrl ArticleController) Create(c *gin.Context) {
 // @Success 	 200  {object}  models.AllArticleResponse
 // @Failure      406  {object}  forms.ArticleResponse
 // @Router /articles [GET]
-func (ctrl ArticleController) All(c *gin.Context) {
+func (ctrl ArticleHandler) All(c *gin.Context) {
 	userID := getUserID(c)
 
 	results, err := articleModel.All(userID)
@@ -80,7 +79,7 @@ func (ctrl ArticleController) All(c *gin.Context) {
 // @Success 	 200  {object}  models.OneArticleResponse
 // @Failure      406  {object}  forms.ArticleResponse
 // @Router /article/{id} [GET]
-func (ctrl ArticleController) One(c *gin.Context) {
+func (ctrl ArticleHandler) One(c *gin.Context) {
 	userID := getUserID(c)
 
 	id := c.Param("id")
@@ -111,7 +110,7 @@ func (ctrl ArticleController) One(c *gin.Context) {
 // @Success 	 200  {object}  models.ArticleResponse
 // @Failure      406  {object}  forms.ArticleResponse
 // @Router /article/{id} [PUT]
-func (ctrl ArticleController) Update(c *gin.Context) {
+func (ctrl ArticleHandler) Update(c *gin.Context) {
 	userID := getUserID(c)
 
 	id := c.Param("id")
@@ -150,7 +149,7 @@ func (ctrl ArticleController) Update(c *gin.Context) {
 // @Success 	 404  {object}  forms.ArticleResponse
 // @Failure      406  {object}  forms.ArticleResponse
 // @Router /article/{id} [DELETE]
-func (ctrl ArticleController) Delete(c *gin.Context) {
+func (ctrl ArticleHandler) Delete(c *gin.Context) {
 	userID := getUserID(c)
 
 	id := c.Param("id")

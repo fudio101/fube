@@ -1,16 +1,16 @@
-package controllers
+package handlers
 
 import (
-	"github.com/fudio101/fube/forms"
-	"github.com/fudio101/fube/models"
-
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	"github.com/fudio101/fube/internal/forms"
+	"github.com/fudio101/fube/internal/models"
 )
 
-// UserController ...
-type UserController struct{}
+// UserHandler ...
+type UserHandler struct{}
 
 var userModel = new(models.UserModel)
 var userForm = new(forms.UserForm)
@@ -32,7 +32,7 @@ func getUserID(c *gin.Context) (userID int64) {
 // @Success 	 200  {object}  models.UserLoginResponse
 // @Failure      406  {object}  models.MessageResponse
 // @Router /user/login [post]
-func (ctrl UserController) Login(c *gin.Context) {
+func (ctrl UserHandler) Login(c *gin.Context) {
 	var loginForm forms.LoginForm
 
 	if validationErr := c.ShouldBindJSON(&loginForm); validationErr != nil {
@@ -61,7 +61,7 @@ func (ctrl UserController) Login(c *gin.Context) {
 // @Success 	 200  {object}  models.UserLoginResponse
 // @Failure      406  {object}  models.MessageResponse
 // @Router /user/register [post]
-func (ctrl UserController) Register(c *gin.Context) {
+func (ctrl UserHandler) Register(c *gin.Context) {
 	var registerForm forms.RegisterForm
 
 	if validationErr := c.ShouldBindJSON(&registerForm); validationErr != nil {
@@ -89,7 +89,7 @@ func (ctrl UserController) Register(c *gin.Context) {
 // @Success 	 200  {object}  models.MessageResponse
 // @Failure      406  {object}  models.MessageResponse
 // @Router /user/logout [GET]
-func (ctrl UserController) Logout(c *gin.Context) {
+func (ctrl UserHandler) Logout(c *gin.Context) {
 
 	au, err := authModel.ExtractTokenMetadata(c.Request)
 	if err != nil {
