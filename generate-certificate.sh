@@ -2,7 +2,7 @@
 
 cd cert/
 
-ip=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+ip=$(hostname -I | awk '{print $1}')
 echo $ip
 
 openssl genrsa -out myCA.key 2048
