@@ -14,7 +14,8 @@
 cert/
 
 # BUILD #
-./fube
+auth.exe
+auth
 
 # Other #
 vendor/

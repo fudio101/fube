@@ -83,7 +83,7 @@ $ sh generate-certificate.sh
 > Make sure to change the values in .env for your databases
 
 ```
-$ go run *.go
+$ go run .\cmd\auth\main.go
 ```
 
 ## Generate Swagger API Docs
@@ -103,7 +103,7 @@ $ open https://localhost:9000/swagger/index.html
 ## Building Your Application
 
 ```
-$ go build -v
+$ go build -v .\cmd\auth\
 ```
 
 ```
